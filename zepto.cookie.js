@@ -7,13 +7,13 @@
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.gnu.org/licenses/gpl.html
 **/
-$.extend(Zepto, {
+Zepto.extend(Zepto, {
     cookie : function (key, value, options) {
         var days, t, result, decode;
 
         // key and at least value given, set cookie
         if (arguments.length > 1 && String(value) !== "[object Object]") {
-            options = $.extend(Zepto, options);
+            options = Zepto.extend(Zepto, options);
 
             if (value === null || value === undefined) {
                 options.expires = -1;
