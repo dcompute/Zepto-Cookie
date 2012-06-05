@@ -5,11 +5,19 @@ A simple plugin to read, set, and delete cookies. This plugin extends [Zepto.js]
 It is a modification of the [jQuery-Cookie](https://github.com/carhartl/jquery-cookie) plugin made to work with Zepto.
 
 
-## Usage
+## Including
 
 Simply include the script in your site's templates, after zepto.min.js:
 
     <script type="text/javascript" src="zepto.cookie.min.js"></script>
+
+Alternatively, you could also build the plugin into the Zepto library itself. To do so, drop `zepto.cookie.js` into the `src` folder of the [Zepto](https://github.com/madrobby/zepto) project. Then build Zepto with the following command:
+
+`rake concat[zepto.cookie] dist`
+
+This will build the default zepto library, with the inclusion of zepto.cookie. You can then simple include the Zepto library as you normally would.
+
+## Usage
 
 Use as such: `$.cookie(key, value, options);`
 
@@ -22,11 +30,12 @@ Use as such: `$.cookie(key, value, options);`
 
 ## Examples
 
+Set a cookie:
+
 `$.cookie('user', 'johnd');`
 
-Sets the cookie 'user' to 'johnd'.
-
+Read the value of a cookie:
 
 `$.cookie('user');`
 
-Returns the value of the 'user' cookie. After the example above, the result would be 'johnd'.
+If ran after the first example, would return `johnd`.
