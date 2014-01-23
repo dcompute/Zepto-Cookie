@@ -48,6 +48,10 @@ Sets a cookie with the name of `foo` to the value of `bar`.
 
 Reads the value of a cookie. If ran after the first example, would return `bar`.
 
+`$.fn.cookie('foo', null);`
+
+Deletes (expires) the cookie with the name of `foo`.
+
 `$.fn.cookie('foo', 'bar', { expires: 7 });`
 
 Sets the cookie `foo` with value `bar`, set to expire in 7 days.
