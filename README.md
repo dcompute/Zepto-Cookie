@@ -1,84 +1,82 @@
-# Zepto Cookie Plugin
+# Zepto Cookie 插件
 
-A simple plugin to read, set, and delete cookies. This plugin extends [Zepto.js](https://github.com/madrobby/zepto) with a `$.cookie` method.
+一个读取、设置、删除cookie的简单插件。这个插件基于[Zepto.js](https://github.com/madrobby/zepto)，扩展了一个方法：$.cookie。
 
-It is a modification of the [jQuery-Cookie](https://github.com/carhartl/jquery-cookie) plugin made to work with Zepto.
+本插件来自：[Zepto-Cookie](https://github.com/dcompute/Zepto-Cookie)
 
 
-## Loading
+## 加载
 
-Simply include the script in your site's template after zepto.min.js:
+通过script标签，将zepto.cookie.min.js放到zepto.min.js之后即可:
 
     <script type="text/javascript" src="zepto.min.js"></script>
     <script type="text/javascript" src="zepto.cookie.min.js"></script>
 
-Alternatively, you can build the plugin directly into the Zepto library itself.
-To do so, copy `zepto.cookie.js` into the `zepto/src/` folder of the
-[Zepto project](https://github.com/madrobby/zepto). Then build Zepto as you
-normally would using the `rake concat` command:
+如果你想将zepto.cookie.js文件合并到zepto.js中，只需要将zepto.cookie.js拷贝到
+ `zepto/src/` 目录下。在[Zepto project](https://github.com/madrobby/zepto)项
+目中下载源码。也可以参考我的博客[Zepto.js使用](http://siberiawolf.github.io/zepto/)
+按照给出的命令，执行即可。
 
-`rake concat[zepto.cookie] dist`
+`$ npm install`
+`$ npm run-script dist`
 
-This will result in a build the default Zepto library, with the inclusion of
-Zepto Cookie. Grab the regular or minified version of zepto.js from the
-`zepto/dist/` folder and include the library as you normally would.
+然后在 `zepto/dist/` 目录下，会找到合并完的zepto.js文件，里面已经包含了zepto
+和zepto.cookie。之后就只需要引用一个zepto文件即可。
 
     <script type="text/javascript" src="zepto.min.js"></script>
 
-You can then use Zepto Cookie as you normally would.
+使用zepto.cookie，就像使用zepto一样简单.
 
-## Usage
+## 语法
 
-Use as such: `$.fn.cookie(key, value, options);`
+语法: `$.fn.cookie(key, value, options);`
 
-`key` (string), The name of the cookie you want to read/ set.
+`key` (string), 你需要读取/ 设置的cookie的名字。
 
-`value` (string), The value of the cookie you're setting.
+`value` (string), 你设置的cookie的值
 
-`options` (object), Additional cookie parameters such as expires, path, or domain.
+`options` (object), 给cookie添加参数，例如 保存时间, 保存路径, 或者 域名.
 
 
-## Examples
+## 例子
 
 `$.fn.cookie('foo', 'bar');`
 
-Sets a cookie with the name of `foo` to the value of `bar`.
+设置一个名字为 `foo` ，值为 `bar` 的cookie。
 
 `$.fn.cookie('foo');`
 
-Reads the value of a cookie. If ran after the first example, would return `bar`.
+读取名字为 `foo` 的cookie的值。如果想上面那样设置了cookie，则返回 `bar` 。
 
 `$.fn.cookie('foo', null);`
 
-Deletes (expires) the cookie with the name of `foo`.
+删除名字为 `foo` 的cookie。
 
 `$.fn.cookie('foo', 'bar', { expires: 7 });`
 
-Sets the cookie `foo` with value `bar`, set to expire in 7 days.
+给名字为 `foo` 的cookie设置保存时间，设置为7天。
 
-## Options
+## 选项
 
-The `options` argument is an object which supports the following properties:
+`options` 参数是一个对象，接受如下的属性：
 
 `{ expires : 7 }`
 
-The lifespan of the cookie in days. Takes an integer. Defaults to being a
-session cookie.
+设置cookie的保存时间，以天数为单位。设置的值为正数类型。默认cookie为session
+cookie。
 
 `{ path: '/foo' }`
 
-The path for which the cookie is valid. If not specified, the cookie defaults to
-the path on which the cookie was set.
+cookie保存的路径。如果没有指定，默认为设置cookie时的路径
 
 `{ domain: 'example.com' }`
 
-The domain for which the cookie is valid. If not specified, the cookie defaults
-to the domain on which the cookie was set.
+cookie保存的域名。如果没有指定，默认为设置cookie是的域名
 
 `{ secure: true }`
 
-Whether the cookie requries a secure connection (https). Defaults to false.
+是否启用安全连接（https），默认为false。
 
 `{ raw: true }`
 
-Whether or not to URI encode the cookie value. Defaults to false.
+是否对cookie值进行URI encode，默认为false。

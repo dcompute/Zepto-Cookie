@@ -1,23 +1,22 @@
 {
   "name": "Zepto-Cookie",
   "version": "1.1.0",
-  "homepage": "https://github.com/dcompute/Zepto-Cookie",
+  "homepage": "https://github.com/siberiawolf/Zepto-Cookie",
   "authors": [
-    "Daniel Lacy <dan@daniellacy.com>"
+    "siberiawolf http://weibo.com/siberiawolf0307"
   ],
-  "description": "A simple plugin to read, set, and delete cookies. This plugin extends Zepto.js with a $.cookie method.",
+  "description": "一个用来读取、设置、删除cookie的简单插件。 这个插件是基于Zepto.js的，在$.cookie基础之上扩展的一个方法。",
   "main": "zepto.cookie.js",
   "keywords": [
     "Zepto",
-    "Cookies"
+    "Cookies",
+    "Chinese"
   ],
   "license": "MIT",
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "bower_components"
   ],
   "dependencies": {
     "zeptojs": "~1.1.2"
